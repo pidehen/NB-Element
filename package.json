@@ -1,0 +1,36 @@
+{
+  "name": "nb-element",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:cleanup": "rimraf -rf dist",
+    "build:compile": "cnpm run build:cleanup && babel src -d dist",
+    "build:uglify": "uglifyjs dist/NB-Element.js -m -o dist/NB-Element.min.js",
+    "build:pro": "cnpm run build:compile && cnpm run build:uglify"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pidehen/NB-Element.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pidehen/NB-Element/issues"
+  },
+  "homepage": "https://github.com/pidehen/NB-Element#readme",
+  "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-latest": "^6.24.1"
+  }
+}
