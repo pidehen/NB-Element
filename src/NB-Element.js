@@ -26,12 +26,8 @@
 
   const NBEl = NBClass({
     initialize(selector, context) {
-      const context = this.constructor;
-      const createInstance = context.createInstance;
-      const createFragment = context.createFragment;
-      const getElsBySelector = context.getElsBySelector;
-      const type = NBUtil.getType(selector);
-      let els;
+      const { context: { createInstance, createFragment, getElsBySelector } } = this.constructor;
+      let type = NBUtil.getType(selector), els;
 
       if (selector == null) {
         return createInstance.call(this);
